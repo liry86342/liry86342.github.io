@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>シンプルプロキシ</title>
+    <title>プロキシ</title>
     <script>
-        async function fetchURL() {
+        function openProxy() {
             const url = document.getElementById('url').value;
-            const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
-            const data = await response.json();
-            document.getElementById('result').innerHTML = data.contents;
+            if (url) {
+                window.open(url, '_blank');  // 新しいタブで指定のURLを開く
+            }
         }
     </script>
 </head>
 <body>
-    <h1>シンプルプロキシ</h1>
-    <input type="text" id="url" placeholder="URLを入力してください">
-    <button onclick="fetchURL()">送信</button>
-    <div id="result"></div>
+    <h1>プロキシ経由でアクセス</h1>
+    <input type="text" id="url" placeholder="アクセスしたいURLを入力">
+    <button onclick="openProxy()">アクセス</button>
 </body>
 </html>
+
